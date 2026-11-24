@@ -37,6 +37,8 @@ def problems_with(line: str) -> list[str]:
     found: list[str] = []
     if not line.strip():
         found.append("line is empty or only whitespace")
+    if line != line.strip():
+        found.append("line must not start or end with whitespace")
     size = len(line)
     if size < MIN_CHARS or size > MAX_CHARS:
         found.append(
